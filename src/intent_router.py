@@ -25,7 +25,18 @@ def classify_intent_mock(message):
     if any(term in text for term in urgent_terms):
         return {"intent": "potentially_urgent", "confidence": 0.99}
 
-    if any(term in text for term in ("allocate", "competing requests", "unit availability")):
+    if any(term in text for term in (
+    "allocation",
+    "competing requests",
+    "unit availability",
+    "only one unit",
+    "one mobile health unit",
+    "limited units",
+    "multiple communities",
+    "two communities requesting",
+    "multiple requests",
+    "prioritize requests",
+    "prioritize communities",)):
         intent = "dispatch_coordination"
     elif any(term in text for term in ("clinic", "find a service", "available services")):
         intent = "resource_navigation"
